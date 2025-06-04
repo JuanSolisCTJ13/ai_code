@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import ProductCarousel from '../components/ProductCarousel'
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <main>
         <h1>Bienvenido a la Tienda Coreana</h1>
         <p>Explora nuestra selección de productos coreanos.</p>
+        <ProductCarousel />
       </main>
     </div>
   )
