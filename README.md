@@ -1,6 +1,6 @@
 # Korean Products Store
 
-Este proyecto es un ejemplo de tienda y promoción de productos coreanos creada con **Next.js**. Está pensada para ser desplegada en [Vercel](https://vercel.com/).
+Este proyecto es un ejemplo de tienda y promoción de productos coreanos creada con **Next.js**. Incluye una barra de navegación y un carrusel de productos con imágenes de **jolse.com**. Está pensada para ser desplegada en [Vercel](https://vercel.com/).
 
 ## Comandos
 
