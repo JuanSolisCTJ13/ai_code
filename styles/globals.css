@@ -1,8 +1,18 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
+  background-color: #faf5ff;
+  color: #333;
 }
 
-h1 {
-  color: #CC0000;
+h1,
+h2,
+h3 {
+  color: #5c3a5c;
+}
+
+#contacto {
+  background-color: #fff1f2;
+  padding: 2rem 1rem;
+  text-align: center;
 }
