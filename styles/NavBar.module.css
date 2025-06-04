@@ -1,6 +1,10 @@
 .nav {
-  background-color: #333;
+  background-color: #fdf2f8;
   padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .nav ul {
@@ -12,6 +16,6 @@
 }
 
 .nav a {
-  color: white;
+  color: #5c3a5c;
   text-decoration: none;
 }

@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import ProductCarousel from '../components/ProductCarousel'
+import Hero from '../components/Hero'
+import ProductGrid from '../components/ProductGrid'
 
 export default function Home() {
   return (
@@ -9,9 +11,14 @@ export default function Home() {
         <meta name="description" content="Best Korean products" />
       </Head>
       <main>
-        <h1>Bienvenido a la Tienda Coreana</h1>
-        <p>Explora nuestra selección de productos coreanos.</p>
+        <Hero />
+        <h2>Productos en tendencia</h2>
+        <ProductGrid />
         <ProductCarousel />
+        <section id="contacto">
+          <h2>Contáctanos</h2>
+          <p>Escríbenos a contacto@example.com</p>
+        </section>
       </main>
     </div>
   )

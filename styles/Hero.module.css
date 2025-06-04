@@ -1,0 +1,32 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ffe4e6, #fdf2f8);
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.content h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #5c3a5c;
+}
+
+.content p {
+  margin: 1rem 0;
+  color: #555;
+}
+
+.cta {
+  background-color: #ec4899;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.cta:hover {
+  background-color: #db2777;
+}
