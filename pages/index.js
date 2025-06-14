@@ -1,9 +1,40 @@
 import Head from 'next/head'
+import { useState } from 'react'
 import ProductCarousel from '../components/ProductCarousel'
 import Hero from '../components/Hero'
 import ProductGrid from '../components/ProductGrid'
 
 export default function Home() {
+  const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [status, setStatus] = useState('')
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus('loading')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      })
+
+      if (res.ok) {
+        setStatus('success')
+        setForm({ name: '', email: '', message: '' })
+      } else {
+        setStatus('error')
+      }
+    } catch (err) {
+      setStatus('error')
+    }
+  }
+
   return (
     <div>
       <Head>
@@ -32,7 +63,36 @@ export default function Home() {
         <ProductCarousel />
         <section id="contacto">
           <h2>Contáctanos</h2>
-          <p>Escríbenos a contacto@example.com</p>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Nombre"
+              value={form.name}
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={form.email}
+              onChange={handleChange}
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Mensaje"
+              value={form.message}
+              onChange={handleChange}
+              required
+            />
+            <button type="submit">Enviar</button>
+          </form>
+          {status === 'success' && <p>Gracias por tu mensaje.</p>}
+          {status === 'error' && (
+            <p>Hubo un error al enviar el mensaje.</p>
+          )}
         </section>
       </main>
     </div>
