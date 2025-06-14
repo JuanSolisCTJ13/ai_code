@@ -9,6 +9,21 @@ export default function Home() {
       <Head>
         <title>Korean Products Store</title>
         <meta name="description" content="Best Korean products" />
+        {/* Open Graph meta tags */}
+        <meta property="og:title" content="Korean Products Store" />
+        <meta property="og:description" content="Best Korean products" />
+        <meta
+          property="og:image"
+          content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAADElEQVR4nGNgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII="
+        />
+        {/* Twitter meta tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Korean Products Store" />
+        <meta name="twitter:description" content="Best Korean products" />
+        <meta
+          name="twitter:image"
+          content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAADElEQVR4nGNgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII="
+        />
       </Head>
       <main>
         <Hero />
