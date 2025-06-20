@@ -28,5 +28,5 @@ npm start       # Ejecutar version compilada / run the compiled app
 3. Usa la configuracion por defecto de proyecto **Next.js**. / Use the default **Next.js** project settings.
 4. Despliega y disfruta de tu nueva tienda. / Deploy and enjoy your new store.
 
-![Screenshot](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAADElEQVR4nGNgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII=)
+![Screenshot of store homepage](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAADElEQVR4nGNgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII=)
 El archivo "public/screenshot.txt" contiene esta imagen codificada en base64.
