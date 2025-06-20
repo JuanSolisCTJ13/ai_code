@@ -1,6 +1,7 @@
 import Image from 'next/image'
+import type { GetStaticPaths, GetStaticProps } from 'next'
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const res = await fetch('https://fakestoreapi.com/products?limit=3')
   const products = await res.json()
   const paths = products.map(product => ({
@@ -9,13 +10,22 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-export async function getStaticProps({ params }) {
-  const res = await fetch(`https://fakestoreapi.com/products/${params.id}`)
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const res = await fetch(`https://fakestoreapi.com/products/${params?.id}`)
   const product = await res.json()
   return { props: { product } }
 }
 
-export default function ProductDetail({ product }) {
+interface Product {
+  id: number
+  image: string
+  title?: string
+  name?: string
+  price: number | string
+  description?: string
+}
+
+export default function ProductDetail({ product }: { product: Product }) {
   return (
     <div>
       <h1>{product.title || product.name}</h1>

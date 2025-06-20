@@ -3,13 +3,13 @@ import Image from 'next/image'
 import styles from '../styles/Carousel.module.css'
 
 export default function ProductCarousel() {
-  const [images, setImages] = useState([])
+  const [images, setImages] = useState<string[]>([])
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
     fetch('/api/products')
       .then(res => res.json())
-      .then(data => setImages(data.map(p => p.image)))
+      .then((data: { image: string }[]) => setImages(data.map(p => p.image)))
   }, [])
 
   const prev = () => setIndex((index - 1 + images.length) % images.length)

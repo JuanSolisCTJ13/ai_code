@@ -4,15 +4,24 @@ import ProductCarousel from '../components/ProductCarousel'
 import Hero from '../components/Hero'
 import ProductGrid from '../components/ProductGrid'
 
-export default function Home() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
-  const [status, setStatus] = useState('')
+interface FormState {
+  name: string
+  email: string
+  message: string
+}
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
+export default function Home() {
+  const [form, setForm] = useState<FormState>({ name: '', email: '', message: '' })
+  const [status, setStatus] = useState<string>('')
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target
+    setForm({ ...form, [name]: value })
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setStatus('loading')
     try {
