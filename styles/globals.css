@@ -1,18 +1,18 @@
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #faf5ff;
+  background-color: #ffffff;
   color: #333;
 }
 
 h1,
 h2,
 h3 {
-  color: #5c3a5c;
+  color: #003478;
 }
 
 #contacto {
-  background-color: #fff1f2;
+  background-color: #f0f4ff;
   padding: 2rem 1rem;
   text-align: center;
 }
@@ -33,7 +33,7 @@ h3 {
 }
 
 #contacto button {
-  background-color: #ec4899;
+  background-color: #c60c30;
   color: white;
   padding: 0.5rem 1rem;
   border: none;
@@ -42,5 +42,5 @@ h3 {
 }
 
 #contacto button:hover {
-  background-color: #db2777;
+  background-color: #9f1c31;
 }
