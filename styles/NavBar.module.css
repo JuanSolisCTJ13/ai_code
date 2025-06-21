@@ -1,5 +1,5 @@
 .nav {
-  background-color: #fff;
+  background-color: #fdf2f8;
   padding: 1rem;
   position: sticky;
   top: 0;
@@ -16,6 +16,6 @@
 }
 
 .nav a {
-  color: #003478;
+  color: #5c3a5c;
   text-decoration: none;
 }

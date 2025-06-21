@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #c60c30, #003478);
+  background: linear-gradient(135deg, #ffe4e6, #fdf2f8);
   padding: 4rem 1rem;
   text-align: center;
 }
@@ -10,7 +10,7 @@
 .content h1 {
   margin: 0;
   font-size: 2rem;
-  color: #003478;
+  color: #5c3a5c;
 }
 
 .content p {
@@ -19,7 +19,7 @@
 }
 
 .cta {
-  background-color: #c60c30;
+  background-color: #ec4899;
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 4px;
@@ -28,5 +28,5 @@
 }
 
 .cta:hover {
-  background-color: #9b001f;
+  background-color: #db2777;
 }
