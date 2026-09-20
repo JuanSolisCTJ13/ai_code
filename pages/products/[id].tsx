@@ -10,9 +10,25 @@ interface Product {
   description?: string
 }
 
+const fallbackProducts: Product[] = [
+  { id: 1, title: 'Producto coreano 1', image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=', price: 0 },
+  { id: 2, title: 'Producto coreano 2', image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=', price: 0 },
+  { id: 3, title: 'Producto coreano 3', image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=', price: 0 },
+]
+
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch('https://fakestoreapi.com/products?limit=3')
-  const products: Product[] = await res.json()
+  let products = fallbackProducts
+
+  try {
+    const res = await fetch('https://fakestoreapi.com/products?limit=3')
+    if (res.ok) {
+      const data: unknown = await res.json()
+      if (Array.isArray(data)) products = data as Product[]
+    }
+  } catch {
+    // Use fallback paths when the external catalog is unavailable during build.
+  }
+
   const paths = products.map((product: Product) => ({
     params: { id: product.id.toString() }
   }))
@@ -20,8 +36,21 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const res = await fetch(`https://fakestoreapi.com/products/${params?.id}`)
-  const product: Product = await res.json()
+  const id = Number(params?.id)
+  let product = fallbackProducts.find(item => item.id === id) || fallbackProducts[0]
+
+  try {
+    const res = await fetch(`https://fakestoreapi.com/products/${id}`)
+    if (res.ok) {
+      const data: unknown = await res.json()
+      if (data && typeof data === 'object' && 'id' in data) {
+        product = data as Product
+      }
+    }
+  } catch {
+    // Use fallback product when the external catalog is unavailable at build time.
+  }
+
   return { props: { product } }
 }
 
