@@ -25,7 +25,12 @@ export default function ProductGrid() {
     <section className={styles.grid}>
       {products.map((product: Product) => (
         <Link key={product.id} href={`/products/${product.id}`} className={styles.card}>
-          <Image src={product.image} alt={product.title || product.name} width={200} height={200} />
+          <Image
+            src={product.image}
+            alt={product.title || product.name || 'Producto coreano'}
+            width={200}
+            height={200}
+          />
           <h3>{product.title || product.name}</h3>
           <p className={styles.price}>
             {typeof product.price === 'number' ? `$${product.price}` : product.price}
@@ -35,4 +40,3 @@ export default function ProductGrid() {
     </section>
   )
 }
-
