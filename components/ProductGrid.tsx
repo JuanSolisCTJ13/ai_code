@@ -18,7 +18,9 @@ export default function ProductGrid() {
   useEffect(() => {
     fetch('/api/products')
       .then(res => res.json())
-      .then((data: Product[]) => setProducts(data))
+      .then((data: unknown) => {
+        if (Array.isArray(data)) setProducts(data as Product[])
+      })
   }, [])
 
   return (
