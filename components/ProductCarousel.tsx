@@ -9,7 +9,11 @@ export default function ProductCarousel() {
   useEffect(() => {
     fetch('/api/products')
       .then(res => res.json())
-      .then((data: { image: string }[]) => setImages(data.map(p => p.image)))
+      .then((data: unknown) => {
+        if (Array.isArray(data)) {
+          setImages((data as { image: string }[]).map(product => product.image))
+        }
+      })
   }, [])
 
   const prev = () => setIndex((index - 1 + images.length) % images.length)
